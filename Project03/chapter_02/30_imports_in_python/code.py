@@ -1,4 +1,3 @@
-# -- importing --
 
 from mymodule import divide
 
