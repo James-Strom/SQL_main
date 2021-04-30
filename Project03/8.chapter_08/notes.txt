@@ -1,0 +1,36 @@
+Primary keys
+    link tables with foreign keys
+    Adds index to the column
+    Adds unique  constraint
+
+Composite Primary keys
+    Two or more columns
+    The columns get a composite index
+    Get a composite unique constraint
+        individual are no longer unique
+
+
+***Here we have created a function that will delete from users where last opened is
+greater than 604000 seconds i.e. 1 week.***
+
+User-defined functions
+    CREATE FUNCTION delete_inactive(seconds NUMERIC) RETURNS void AS $$
+        DELETE FROM users WHERE last_opened > seconds
+    $$ LANGUAGE SQL;
+
+    SELECT delete_inactive(604800);
+
+Delete function
+    DROP FUNCTION delete_inactive(seconds NUMERIC);
+
+Stored procedures
+    Has access to transactions and transaction control
+    Cannot return values
+    opposite of a function
+
+Locking
+    lock access to data
+Types
+    Table-level locking(limit access to tables)
+    Row-level locking
+    Advisory locking(doesn't limit, just suggestion)
